@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 보기</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h2>글 보기</h2>
+    <div>
+        <p><strong>번호:</strong> {{ board.id }}</p>
+        <p><strong>제목:</strong> {{ board.title }}</p>
+        <p><strong>작성자:</strong> {{ board.author }}</p>
+        <p><strong>내용:</strong> {{ board.content }}</p>
+    </div>
+    <button onclick="location.href='/index'">돌아가기</button>
+</body>
+
+</html>

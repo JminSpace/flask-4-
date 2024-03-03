@@ -1,0 +1,121 @@
+/* style.css */
+
+/* 전체 페이지 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .login-button {
+    padding: 8px 16px;
+    margin-left: auto; /* 헤더의 오른쪽에 버튼을 배치하기 위해 */
+    background-color: #4CAF50; /* 원하는 배경색 설정 */
+    color: white; /* 글씨 색 설정 */
+    text-decoration: none; /* 텍스트 밑줄 제거 */
+    border: none; /* 테두리 제거 */
+    border-radius: 4px; /* 경계선 둥글게 설정 */
+}
+  
+  /* 헤더 스타일 */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    margin: 0;
+    margin-right: 20px;
+  }
+  
+  .create-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-right: auto;
+  }
+  
+  /* 검색 폼 스타일 */
+  .search-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .search-form {
+    display: inline-block;
+  }
+  
+  .search-form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+  }
+
+  .username {
+    margin-left: auto; 
+    color: #fff;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* 테이블 스타일 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* 수정/삭제 버튼 스타일 */
+  .edit-button,
+  .delete-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .back-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  /* 반응형 스타일 */
+  @media screen and (max-width: 600px) {
+    .search-form input[type="text"] {
+      width: 100%;
+    }
+  }
+  
+  

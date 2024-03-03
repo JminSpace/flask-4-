@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>글 작성</title>
+    <script>
+        function redirectToIndex() {
+            window.location.href = "{{ url_for('sub_index') }}"; 
+        }
+    </script>
+</head>
+<body>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button type="button" onclick="location.href='/index' ">돌아가기</button> 
+            <h2>글 작성</h2>
+            <form action="/create_post" method="POST" enctype="multipart/form-data"> 
+                <label for="title">제목:</label>
+                <input type="text" id="title" name="title">
+                
+                <label for="content">내용:</label>
+                <textarea id="content" name="content"></textarea>
+                
+                <div>
+                    <input type="checkbox" id="secret" name="secret" onchange="togglePasswordInput(this)">
+                    <label for="secret">비밀글</label>
+                </div>
+
+                <div id="passwordInput" style="display: none;">
+                    <label for="password">비밀번호:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <input type="file" name="file">
+                
+                <button type="submit">작성 완료</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordInput(checkbox) {
+            var passwordInput = document.getElementById('passwordInput');
+            if (checkbox.checked) {
+                passwordInput.style.display = 'block'; 
+            } else {
+                passwordInput.style.display = 'none';  
+            }
+        }
+    </script>
+</body>
+</html>

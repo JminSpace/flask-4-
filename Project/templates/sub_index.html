@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자유게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+  
+</head>
+
+<body>
+    <header>
+        <h1 class="title">자유게시판</h1>
+        <a href="/view" class="create-button">글 작성</a>
+        <span>{{ session['username'] }}님</span>
+        <a href="{{ url_for('logout') }}" class="login-button">로그아웃</a>
+    </header>
+
+    <div class="search-container">
+        <form action="/search" method="POST" class="search-form">
+            <input type="text" name="search_term" placeholder="검색어를 입력하세요">
+            <button type="submit" class="search-button">검색</button>
+        </form>
+    </div>
+
+    {% if search_results %}
+    <h2>검색 결과</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in search_results %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td><a href="/view_post.html/{{ post.id }}">{{ post.title }}</a></td>
+                <td>{{ post.author }}</td>
+                <td>{{ post.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/index.html" class="back-button">자유게시판으로 돌아가기</a>
+    {% else %}
+    <table>
+        
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>수정/삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in boards %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td><a href="/view_post.html/{{ post.id }}">{{ post.title }}</a></td>
+                <td>{{ post.author }}</td>
+                <td>{{ post.time }}</td>
+                <td>
+                    <a href="/edit_post/{{ post.id }}" class="edit-button">수정</a>
+                    <form action="/delete_post/{{ post.id }}" method="post" class="delete-form">
+                        <button type="submit" class="delete-button">삭제</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <script src="script.js"></script>
+</body>
+
+</html>
